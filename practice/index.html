@@ -13,226 +13,126 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<script src="js/app.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
+	<link rel="stylesheet" href="practice/style.css">
+
+ 	<link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
 </head>
 
-<style>
-body{
-font-family: 'Cantarell', sans-serif;
-background-color: rgb(2,11,30)
-}
-	.okclass {
-		border: 1px solid green;
-	}
-	.notokclass {
-		border: 1px solid red;
-	}
-	.panel{
-		background-color: rgba(255,0,0,0.5);
-	}
-	img{
-		width: 100px;
-		height: 50px;
-	}
-
-	#title{
-		color: black;
-	}
-
-	.container{
-		background-color: rgba(255,255,255,0.1);
-		color: white;
-	}
-
-	.msg-error{
-		color:red;
-	}
-	.allok{
-		color: green;
-		font-size: 2em
-	}
-
-	/* when hiding the picture */
-.jumbotron .ng-hide-add         { -webkit-animation:0.5s lightSpeedOut ease; }
-
-/* when showing the picture */
-.jumbotron .ng-hide-remove      { -webkit-animation:0.5s flipInX ease; }
-
-/* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
-/* flip in */
-@keyframes flipInX {
-  0% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    transition-timing-function: ease-in;
-    opacity: 0;
-  }
-
-  40% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transition-timing-function: ease-in;
-    transition-timing-function: ease-in;
-  }
-
-  60% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-  }
-
-  100% {
-    transform: perspective(400px);
-    transform: perspective(400px);
-    transform: perspective(400px);
-  }
-}
-
-/* light speed out */
-@keyframes lightSpeedOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    opacity: 0;
-  }
-}
-
-@keyframes lightSpeedOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    opacity: 0;
-  }
-}
-</style>
-<body ng-app="myapp" class="container-fluid">
-<nav class="navbar navbar-default navbar-static-top">	
-			<a href="#" class="navbar-brand"> 
+<body ng-app="myapp" class="container-fluid vertical-center">
+	<nav class="navbar navbar-default navbar-static-top">	
+		<a href="#" class="navbar-brand"> 
 			<img id="logo" src="../anomali.png" >
-			 </a>
+		</a>
 		<text id="title" class="navbar-toggle">Coding Challenge</text>
 
-		</nav>
+	</nav>
 
 	<div class="container" ng-controller="maincontroller">
-
-	<div class="jumbotron row" ng-hide="allok"> 
+		<div class="jumbotron row" ng-hide="allok"> 
 			<span class="allok">All set ! The form validation is complete.</span>
-	</div> 
-		<form class="row" name="anomali" ng-submit="completevalidation(anomali)" ng-show="allok">
-			<!-- <div class="form-group col-md-12">
+		</div> 
+		<form name="anomali" ng-submit="completevalidation(anomali)" ng-show="allok">
+			<div class="form-group col-md-12 col-sm-12">
 
 				<div class="col-md-5">
 					<label for="fname">FIRST NAME *</label>
 					<input type="text" class="form-control" name="fname" ng-minlength="2" placeholder="First Name" ng-model="form.first_name" ng-required="true" ng-maxlength="16" autocomplete="off" >
 					<span ng-show="formvalidations.fname" class="msg-error">Invalid FirstName</span>
- 				</div>
+				</div>
 				<div class="col-md-5 col-md-offset-2">
 					<label for="lname">LAST NAME *</label>
 					<input type="text" class="form-control" name="lname" ng-minlength="2" ng-maxlength="16" placeholder="Last Name" ng-model="form.last_name" autocomplete="off" ng-required="true">
 					<span ng-show="formvalidations.lname" class="msg-error">Invalid LastName</span>
 				</div>
 			</div>
-			<div class="form-group col-md-12">
-				<div class="col-md-12">
+			<div class="form-group col-md-12 col-sm-12">
+				<div class="col-md-12 col-sm-12">
 					<label for="company">COMPANY NAME *</label>
 					<input type="text" class="form-control" name="company" ng-minlength="2" ng-maxlength="16" placeholder="Name of your company" ng-model="form.company" autocomplete="off" ng-required="true">
 					<span ng-show="formvalidations.company" class="msg-error">Invalid Company Name</span>
 				</div>
 			</div>
-			<div class="form-group col-md-12">
-				<div class="col-md-12">
+			<div class="form-group col-md-12 col-sm-12">
+				<div class="col-md-12 col-sm-12">
 					<label for="email">WORK EMAIL *</label>
 					<input type="email" class="form-control" name="email" placeholder="work email ID" ng-model="form.email"  ng-Pattern="emailpattern" autocomplete="off" ng-required="true">
 					<span ng-show="formvalidations.email" class="msg-error">Invalid E-Mail</span>
 				</div>
 			</div>
-			<div class="form-group col-md-12">
-				<div class="col-md-12">
+			<div class="form-group col-md-12 col-sm-12">
+				<div class="col-md-12 col-sm-12">
 					<label for="phnum">PHONE NUMBER *</label>
 					<input type="number" placeholder = "Enter your phone number"	class = "form-control" name = "phone" ng-minlength = "10" ng-maxlength = "10" fieldlength="10" ng-model="form.phone" ng-required="true"/>
 					<span ng-show = "(anomali.phone.$error.required ||anomali.phone.$error.number) && (anomali.phone.$dirty)" class="msg-error">Invalid Phone number</span>
-					  
+
 				</div>
 			</div>
-			<div class="form-group col-md-12">
+			<div class="form-group col-md-12 col-sm-12">
 				<div class="col-md-5">
 					<label for="country">COUNTRY *</label>
- 					<select ng-model="form.country" class="form-control" ng-options="obj.name as obj.value for obj in form.countrylist" name="country" autocomplete="off" ng-required="true">
+					<select ng-model="form.country" class="form-control" ng-options="obj.name as obj.value for obj in form.countrylist" name="country" autocomplete="off" ng-required="true">
 						<option selected value="">Please Choose a country</option>
 					</select>
 					<span ng-show="formvalidations.country" class="msg-error">What is your country</span>
-			</div>
-			<div class="col-md-5 col-md-offset-2">
-				<label for="state">STATE *</label>
-				<select ng-model="form.state" class="form-control" ng-options="obj.name as obj.value for obj in form.usastatelist" name="state" ng-disabled="countrytostate()" ng-required="true" statechecker="anomali.country">
+				</div>
+				<div class="col-md-5 col-md-offset-2">
+					<label for="state">STATE *</label>
+					<select ng-model="form.state" class="form-control" ng-options="obj.name as obj.value for obj in form.usastatelist" name="state" ng-disabled="countrytostate()" ng-required="true" statechecker="anomali.country">
 						<option selected value="">Please Choose a US State</option>
 						<span ng-show="formvalidations.state" class="msg-error">What is your State</span>
 					</select>
 					<span ng-show="formvalidations.state" class="msg-error">What is your country</span>
+				</div>
 			</div>
-		</div>
-		<div class="form-group col-md-12">
-			<div class="col-md-5">
-				<label for="industry">INDUSTRY *</label>
-				<select ng-model="form.industry"  class="form-control" ng-options="obj.name as obj.value for obj in form.industries" name="industry" ng-required="true">
+			<div class="form-group col-md-12 col-sm-12">
+				<div class="col-md-5">
+					<label for="industry">INDUSTRY *</label>
+					<select ng-model="form.industry"  class="form-control" ng-options="obj.name as obj.value for obj in form.industries" name="industry" ng-required="true">
 						<option selected value="">Please Choose the Industry</option>
 					</select>
-				<span ng-show="formvalidations.industry" class="msg-error">What is your Industry</span>
+					<span ng-show="formvalidations.industry" class="msg-error">What is your Industry</span>
+
+				</div>
+				<div class="col-md-5 col-md-offset-2">
+					<label for="zip">ZIP/POSTAL *</label>
+					<input type="number" ng-model="form.zipcode" ng-minlength="5" ng-maxlength="7"  class="form-control" name="zipcode" placeholder="Area code"  name="zipcode" autocomplete="off"  fieldlength="7" ng-required="true">
+					<span ng-show="formvalidations.zipcode" class="msg-error">Invalid zipcode</span>
+				</div>
+			</div>
+			<div class="form-group col-md-12 col-sm-12">
+				<div class="col-md-5">
+					<label for="pwd1">PASSWORD *</label>
+					<input type="password" class="form-control" name="pwdone" placeholder="Password" ng-model="form.password" complex autocomplete="off" ng-required="true">
+					<span ng-show="formvalidations.pwdone" class="msg-error">Password doesn't meet the requirements</span>
+				</div>
+
+				<div class="col-md-5 col-md-offset-2">
+					<label for="pwd2">CONFIRM PASSWORD *</label>
+					<input type="password" class="form-control" name="pwdtwo" ng-model="form.confpassword" placeholder="Confirm Password" confirmpwd="anomali.pwdone" autocomplete="off" ng-required="true">
+					<span ng-show="formvalidations.pwdtwo" class="msg-error">Passwords don't match</span>
+				</div>
 
 			</div>
-			<div class="col-md-5 col-md-offset-2">
-				<label for="zip">ZIP/POSTAL *</label>
-				<input type="number" ng-model="form.zipcode" ng-minlength="5" ng-maxlength="7"  class="form-control" name="zipcode" placeholder="Area code"  name="zipcode" autocomplete="off"  fieldlength="7" ng-required="true">
-				<span ng-show="formvalidations.zipcode" class="msg-error">Invalid zipcode</span>
+			<div class="form-group col-md-12 col-sm-12">
+				<div class="col-md-12 col-sm-12">
+				<label class="checkbox-inline"><input type="checkbox" name="subscribe" ng-model="form.subscribe" autocomplete="off" ><span ng-hide="form.subscribe"><strong>INTERESTED IN BECOMING A PARTNER ?</strong></span>
+				<span ng-show="form.subscribe"><strong>YES, I AM INTERESTED IN BECOMING A PARTNER</strong></span>
+				<span ng-show="formvalidations.subscribe" class="msg-error">Subscription is mandatory</span></label>
+ 
+					 
+					<div class="form-group col-md-12 col-sm-12" >
+						By clicking Register, you agree to Anomali's <a href="#">Terms of use</a> and <a href="">Privacy Policy</a>
+					</div> 				
+				</div>
+
 			</div>
-		</div> -->
-		<div class="form-group col-md-12">
-			<div class="col-md-5">
-				<label for="pwd1">PASSWORD *</label>
-				<input type="password" class="form-control" name="pwdone" placeholder="Password" ng-model="form.password" complex autocomplete="off" ng-required="true">
-				<span ng-show="formvalidations.pwdone" class="msg-error">Password doesn't meet the requirements</span>
+			<div class="col-md-4 col-md-offset-4">
+				<button type="submit" class=" form-control btn btn-success" >REGISTER</button>
 			</div>
-
-			<div class="col-md-5 col-md-offset-2">
-				<label for="pwd2">CONFIRM PASSWORD *</label>
-				<input type="password" class="form-control" name="pwdtwo" ng-model="form.confpassword" placeholder="Confirm Password" confirmpwd="anomali.pwdone" autocomplete="off" ng-required="true">
-				<span ng-show="formvalidations.pwdtwo" class="msg-error">Passwords don't match</span>
-			</div>
-
-		</div>
-		<div class="form-group col-md-12">
-			<div class="col-md-12">
-			  <label><input type="checkbox" class="form-control" name="subscribe" placeholder="Password" ng-true-value="Interested for subscription" ng-false-value="Not interested for subscription"><span><strong>INTERESTED IN BECOMING A PARTNER</strong></span></label>
-			  	<div class="form-group col-md-12" >
-					By clicking Register, you agree to Anomali's <a href="#">Terms of use</a> and <a href="">Privacy Policy</a>
-				</div> 				
-			</div>
-
-		</div>
-		<div class="form-group col-md-4 col-md-offset-5">
-			<button type="submit" class="btn btn-success" >REGISTER</button>
-		</div>
-	</form>
+		</form>
 
 
-</div>
+	</div>
 
 
 </body>

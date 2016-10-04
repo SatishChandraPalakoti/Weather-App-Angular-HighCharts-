@@ -1,0 +1,35 @@
+body{
+	font-family: 'Cantarell', sans-serif; 
+}
+.okclass {
+	border: 1px solid green;
+}
+.notokclass {
+	border: 1px solid red;
+}
+.panel{
+	background-color: rgba(255,0,0,0.5);
+}
+img{
+	width: 100px;
+	height: 50px;
+}
+
+#title{
+	color: black;
+}
+
+.container{
+	background-color: rgba(0,0,0,0.1);
+	color:rgb(2,11,30);
+	padding: 2%;
+}
+
+.msg-error{
+	color:red;
+}
+.allok{
+	color: green;
+	font-size: 2em
+}
+ 

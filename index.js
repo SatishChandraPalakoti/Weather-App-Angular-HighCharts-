@@ -7,7 +7,8 @@ var port=process.env.PORT || 4001
 app.use(express.static(__dirname+'/'))
 alfa.get('/',function(req,res){
 
-	res.sendFile(path.join(__dirname+'/practice/index.html'))
+	// res.sendFile(path.join(__dirname+'/practice/index.html'))
+	res.sendFile(path.join(__dirname+'/fprac5/index.html'))
 });
  
 

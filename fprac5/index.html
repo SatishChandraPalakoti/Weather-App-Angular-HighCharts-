@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather App</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="js/fapp5.js"></script> 
+
+ 	<link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
+</head>
+
+<body ng-app="myapp">
+<nav class="navbar navbar-inverse navbar-fixed">	
+			<a href="#" class="navbar-brand"> 
+			<img id="logo" src="practice/logo.png" >
+			 </a>
+		<text class="navbar-brand">ANGULAR WEATHER APP</text>
+			<span style="float: right;">
+				<img src="practice/a.png">		
+				<h1 style="display: inline;"> + </h1> 	
+			<img src="practice/h.png"  width="50px" height="50px;">
+ 
+			</span>
+</nav>
+
+	 <div class="container-fluid" ng-controller="maincontroller">
+	 	<div class="row">
+	 		
+	 		<div class="col-md-6 col-md-offset-3">
+	 			<label for="city">CITY *</label>
+					
+					<select ng-model="city"  class="form-control" ng-options="obj.id as obj.city for obj in citylist" name="industry" ng-required="true" changer size="5">
+						<option selected value="">PLEASE SELECT THE city</option>
+					</select>
+	 		</div>
+
+	 		<div class="col-md-12 chartholders ">
+	 			<div columnchart></div>
+	 		</div>
+
+	 		<div class="col-md-12 chartholders ">
+	 			<div areachart></div>
+	 		</div>
+
+	 		<div class="col-md-12 chartholders ">
+	 			<div piechart></div>
+	 		</div>
+ 		</div> 
+	 </div>
+
+
+</body>
+<style type="text/css">
+	
+.chartholders{
+	margin-top: 5%;
+	color: white;
+}
+
+body{
+	background-image: url('practice/bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: white;
+}
+
+#logo{
+	width: 50px;
+	margin: auto;
+}
+ 
+</style>
+</html>

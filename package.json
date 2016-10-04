@@ -1,7 +1,7 @@
 {
-  "name": "angularcheck",
+  "name": "anomali",
   "version": "1.0.0",
-  "description": "sample angular js project",
+  "description": "Angular JS form Validation task by Anomali",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
